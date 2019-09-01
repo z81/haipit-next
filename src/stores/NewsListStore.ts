@@ -32,10 +32,17 @@ export const NewsListStore = (service: NewsListStoreServices) => WithDataLoaderS
 
       self.setTotalPages(news.total);
       self.setCurrentPage(news.current_page);
-      self.setNews(news.data.map(item => ({
+      self.setNews(news.data.map(({ source, ...item }) => ({
         id: item.id,
         title: item.title,
-        description: item.description
+        description: item.description,
+        createdAt: new Date(item.created_at),
+        source: {
+          title: source.title,
+          shortName: source.short_name,
+          imageUrl: source.image_url,
+          imageTitle: source.title
+        }
       } as NewsStoreType)))
     }
   }))

@@ -4,6 +4,7 @@ import { MainHeader } from '../../components/App/components/MainHeader/MainHeade
 import { Content } from '../../components/Content/Content';
 import { NewsListStoreType } from '../../stores/NewsListStore';
 import { observer } from 'mobx-react';
+import { LoadMoreButton } from './components/LoadMoreButton/LoadMoreButton';
 
 type MainAppProps = { store: NewsListStoreType}
 
@@ -12,7 +13,8 @@ export const MainPage: React.FC<MainAppProps> = observer(({ store }) => {
     <>
       <MainHeader />
       <Content>
-        {store.news.map((newStore) => (<NewsCard key={newStore.id} store={newStore}/>))}
+        {store.news.map((newStore) => (<NewsCard key={newStore.id} store={newStore} />))}
+        <LoadMoreButton />
       </Content>
     </>
   );

@@ -1,4 +1,5 @@
 import { types } from "mobx-state-tree";
+import { SourceStore } from "./SourceStore";
 
 export type NewsStoreType = typeof NewsStore["Type"]
 
@@ -8,5 +9,7 @@ export const NewsStore = types
     title: "",
     link: "",
     url: "",
-    description: types.maybeNull(types.string)
+    createdAt: types.Date,
+    description: types.maybeNull(types.string),
+    source: SourceStore
   })
