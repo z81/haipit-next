@@ -1,4 +1,4 @@
-import { NewsResponseType } from "./NewsResponseType";
+import { NewsResponseType } from './NewsResponseType';
 
 export type NewsListResponseType = {
   current_page: number;
@@ -12,9 +12,5 @@ export type NewsListResponseType = {
   per_page: number;
   prev_page_url: null;
   to: number;
-  data: NewsResponseType[]
-}
-
-
-
-
+  data: NewsResponseType[];
+};

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const AppStyled = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
@@ -8,4 +8,4 @@ export const AppStyled = styled.div`
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   background: #f0f0f0;
-`
+`;

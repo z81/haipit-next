@@ -1,4 +1,4 @@
-import {SourceResponseType} from "./SourceResponseType"
+import { SourceResponseType } from './SourceResponseType';
 
 export type NewsResponseType = {
   id: number;
@@ -22,4 +22,4 @@ export type NewsResponseType = {
   user: null;
   categories: null[];
   tags: null[];
-}
+};

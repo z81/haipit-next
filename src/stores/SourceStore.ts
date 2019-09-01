@@ -1,11 +1,10 @@
-import { types } from "mobx-state-tree";
+import { types } from 'mobx-state-tree';
 
-export type SourceStoreType = typeof SourceStore["Type"]
+export type SourceStoreType = typeof SourceStore['Type'];
 
-export const SourceStore = types
-  .model("SourceStore", {
-    title: "",
-    shortName: "",
-    imageUrl: types.maybeNull(types.string),
-    imageTitle: ""
-  })
+export const SourceStore = types.model('SourceStore', {
+  title: '',
+  shortName: '',
+  imageUrl: types.maybeNull(types.string),
+  imageTitle: '',
+});
