@@ -60,6 +60,7 @@ export const NewsListStore = (service: NewsListStoreServices) =>
                 title: item.title,
                 description: item.description,
                 createdAt: new Date(item.created_at),
+                views: item.views_count,
                 source: {
                   title: source.title,
                   shortName: source.short_name,

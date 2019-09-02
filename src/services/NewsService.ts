@@ -1,4 +1,4 @@
-import { NewsApi } from '../Api/NewsApi';
+import { NewsApi } from 'Api/NewsApi';
 
 export class NewsService {
   getNews(page: number = 1) {

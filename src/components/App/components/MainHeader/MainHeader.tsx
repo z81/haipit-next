@@ -1,8 +1,7 @@
 import React from 'react';
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import styled from 'styled-components';
 import { Header } from '../Header/Header';
-import { MainHeaderStoreType } from '../../../../stores/MainHeaderStore';
+import { MainHeaderStoreType } from 'stores/MainHeaderStore';
 
 const Logo = styled.div`
   font-size: 36px;
@@ -26,12 +25,7 @@ const HeaderMenuItem = styled.div`
     cursor: pointer;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    background-image: linear-gradient(
-      to right,
-      #6da929 0%,
-      #3396ad 51%,
-      #33a238 100%
-    );
+    background-image: linear-gradient(to right, #6da929 0%, #3396ad 51%, #33a238 100%);
   }
 `;
 type MainHeaderProps = {

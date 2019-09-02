@@ -14,8 +14,8 @@ export const NewsLoaderPlaceholder = () => (
         height={160}
         width={400}
         speed={2}
-        primaryColor="#2e3b2e"
-        secondaryColor="#88d8b0"
+        primaryColor="#7e7b7e"
+        secondaryColor="#a8a8b0"
       >
         <rect x="7" y="10" rx="4" ry="4" width="61" height="8" />
         <rect x="91" y="10" rx="4" ry="4" width="53" height="8" />
