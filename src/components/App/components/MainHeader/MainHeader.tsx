@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Header } from '../Header/Header';
-import { MainHeaderStoreType } from 'stores/MainHeaderStore';
+import { RouteStoreType } from 'stores/RouteStore';
 
 const Logo = styled.div`
   font-size: 36px;
@@ -29,15 +29,15 @@ const HeaderMenuItem = styled.div`
   }
 `;
 type MainHeaderProps = {
-  store: MainHeaderStoreType;
+  routes: RouteStoreType[];
 };
 
-export const MainHeader: React.FC<MainHeaderProps> = ({ store }) => (
+export const MainHeader: React.FC<MainHeaderProps> = ({ routes }) => (
   <Header>
     <Logo>//HaipIT</Logo>
     <HeaderMenu>
-      {store.menuNavLinks.map(link => (
-        <HeaderMenuItem>{link.title}</HeaderMenuItem>
+      {routes.map(link => (
+        <HeaderMenuItem key={link.title}>{link.title}</HeaderMenuItem>
       ))}
     </HeaderMenu>
   </Header>

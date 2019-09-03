@@ -12,9 +12,9 @@ export const NewsStore = types
     link: '',
     url: '',
     views: 0,
-    createdAt: types.Date,
+    createdAt: types.optional(types.Date, new Date()),
     description: types.maybeNull(types.string),
-    source: SourceStore,
+    source: types.optional(SourceStore, {}),
   })
   .views(self => ({
     get date() {

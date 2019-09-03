@@ -1,7 +1,7 @@
 import { types } from 'mobx-state-tree';
 import { NewsStore, NewsStoreType } from './NewsStore';
 import { WithDataLoaderStore } from './WithDataLoaderStore';
-import { NewsServiceType } from '../services/NewsService';
+import { NewsServiceType } from 'services/NewsService';
 
 export type NewsListStoreServices = NewsServiceType;
 
