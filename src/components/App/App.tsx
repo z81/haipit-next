@@ -7,7 +7,7 @@ import { RootStore } from 'stores/RootStore';
 import * as services from 'services';
 import { MainHeader } from './components/MainHeader/MainHeader';
 import { RouterProvider, Route } from 'react-router5';
-import { match, value } from 'perfect-matcher';
+import { match, value, any } from 'perfect-matcher';
 import { ViewNewsPage } from 'pages/ViewNewsPage/ViewNewsPage';
 
 const store = RootStore(services).create({});
@@ -23,8 +23,8 @@ export const App: React.FC = () => (
             {({ route }) =>
               route &&
               match(route.name)(
-                value('news', () => <MainPage store={store.news} />),
-                value('view_news', () => <ViewNewsPage store={store.news.news[0]} />)
+                value('view_news', () => <ViewNewsPage store={store.news.news[0]} />),
+                any(() => <MainPage store={store.news} />)
               )
             }
           </Route>
