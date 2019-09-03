@@ -20,12 +20,12 @@ export const App: React.FC = () => (
         <MainHeader routes={store.router.routes} />
         <RouterProvider router={store.router.routerInstance}>
           <Route>
-            {({ route }) =>
-              route &&
-              match(route.name)(
-                value('view_news', () => <ViewNewsPage store={store.news.news[0]} />),
-                any(() => <MainPage store={store.news} />)
-              )
+            {({ route }) => <MainPage store={store.news} />
+            // route &&
+            // match(route.name)(
+            //   value('view_news', () => <ViewNewsPage store={store.news.news[0]} />),
+            //   any(() => <MainPage store={store.news} />)
+            // )
             }
           </Route>
         </RouterProvider>
