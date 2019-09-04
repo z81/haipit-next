@@ -4,13 +4,10 @@ import { MainPage } from 'pages/MainPage/MainPage';
 import { AppStyled } from './App.styled';
 import { GlobalStyle } from './GlobalStyle';
 import { RootStore } from 'stores/RootStore';
-import * as services from 'services';
 import { MainHeader } from './components/MainHeader/MainHeader';
 import { RouterProvider, Route } from 'react-router5';
-import { match, value, any } from 'perfect-matcher';
-import { ViewNewsPage } from 'pages/ViewNewsPage/ViewNewsPage';
 
-const store = RootStore(services).create({});
+const store = RootStore.create({});
 
 export const App: React.FC = () => (
   <React.Fragment>

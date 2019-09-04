@@ -3,8 +3,6 @@ import { SourceStore } from './SourceStore';
 import { formatRelative } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 
-export type NewsStoreType = typeof NewsStore['Type'];
-
 export const NewsStore = types
   .model('NewsStore', {
     id: 1,
@@ -21,6 +19,6 @@ export const NewsStore = types
       return formatRelative(self.createdAt, new Date(), { locale: ru });
     },
     get path() {
-      return self.description ? 'Новость / Статья' : 'Ссылка';
+      return `Новость / ${self.description ? 'Статья' : 'Ссылка'}`;
     },
   }));

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Header } from '../Header/Header';
-import { RouteStoreType } from 'stores/RouteStore';
+import { RouteStore } from 'stores/RouteStore';
 
 const Logo = styled.div`
   font-size: 36px;
@@ -29,7 +29,7 @@ const HeaderMenuItem = styled.div`
   }
 `;
 type MainHeaderProps = {
-  routes: RouteStoreType[];
+  routes: typeof RouteStore['Type'][];
 };
 
 export const MainHeader: React.FC<MainHeaderProps> = ({ routes }) => (

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Card, CardHeader, CardSubHeader } from 'components/Card/Card';
 import React from 'react';
 import { observer } from 'mobx-react';
-import { NewsStoreType } from 'stores/NewsStore';
+import { NewsStore } from 'stores/NewsStore';
 import { FaEye } from 'react-icons/fa';
 
 export const NewsPath = styled.nav`
@@ -30,7 +30,7 @@ export const Source = styled.div`
   display: flex;
 `;
 
-type NewsCardProps = { store: NewsStoreType };
+type NewsCardProps = { store: typeof NewsStore['Type'] };
 
 export const NewsCard: React.FC<NewsCardProps> = observer(({ store }) => (
   <Card>

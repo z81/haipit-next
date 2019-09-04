@@ -1,8 +1,8 @@
 import React from 'react';
-import { NewsStoreType } from 'stores/NewsStore';
+import { NewsStore } from 'stores/NewsStore';
 
 export type ViewNewsPageProps = {
-  store: NewsStoreType;
+  store: typeof NewsStore['Type'];
 };
 
 export const ViewNewsPage: React.FC<ViewNewsPageProps> = ({ store }) => (

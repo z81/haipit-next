@@ -4,12 +4,6 @@ import createRouter, { Router } from 'router5';
 import browserPlugin from 'router5-plugin-browser';
 import { RouteStore } from 'stores/RouteStore';
 
-import { NewsListStoreServices } from './NewsListStore';
-
-export type RouterStoreServices = NewsListStoreServices;
-
-export type RouterStoreType = ReturnType<typeof RouterStore>['Type'];
-
 export const routes = [
   {
     title: 'Публикации',
@@ -23,29 +17,23 @@ export const routes = [
   },
 ];
 
-export const RouterStore = (services: RouterStoreServices) => {
-  let routerInstance: Router;
-  const routeStore = RouteStore(services as any);
+const routerInstances = new Map();
 
-  return types
-    .model('RouterStore', {
-      routes: types.optional(types.array(routeStore), []),
-    })
-    .actions(self => ({
-      afterCreate() {
-        routerInstance = createRouter(routes);
-        routerInstance.usePlugin(browserPlugin());
-        routerInstance.start();
-      },
-    }))
-    .views(() => ({
-      get routerInstance() {
-        return routerInstance;
-      },
-    }))
-    .actions(self => ({
-      afterCreate() {
-        routes.forEach(route => self.routes.push(routeStore.create(route)));
-      },
-    }));
-};
+export const RouterStore = types
+  .model('RouterStore', {
+    routes: types.optional(types.array(RouteStore), []),
+  })
+  .views(self => ({
+    get routerInstance() {
+      return routerInstances.get(self);
+    },
+  }))
+  .actions(self => ({
+    afterCreate() {
+      const routerInstance = createRouter(routes);
+      routerInstances.set(self, routerInstance);
+      routerInstance.usePlugin(browserPlugin());
+      routerInstance.start();
+      routes.forEach(route => self.routes.push(RouteStore.create(route)));
+    },
+  }));
