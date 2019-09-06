@@ -36,9 +36,9 @@ export const MainHeader: React.FC<MainHeaderProps> = ({ routes }) => (
   <Header>
     <Logo>//HaipIT</Logo>
     <HeaderMenu>
-      {routes.map(link => (
+      {/* {routes.map(link => (
         <HeaderMenuItem key={link.title}>{link.title}</HeaderMenuItem>
-      ))}
+      ))} */}
     </HeaderMenu>
   </Header>
 );

@@ -6,8 +6,11 @@ import { GlobalStyle } from './GlobalStyle';
 import { RootStore } from 'stores/RootStore';
 import { MainHeader } from './components/MainHeader/MainHeader';
 import { RouterProvider, Route } from 'react-router5';
+import { match, value, any } from 'perfect-matcher';
+import { ViewNewsPage } from 'pages/ViewNewsPage/ViewNewsPage';
 
 const store = RootStore.create({});
+const RouterComponent = store.router.routerComponent;
 
 export const App: React.FC = () => (
   <React.Fragment>
@@ -15,17 +18,18 @@ export const App: React.FC = () => (
     <AppStyled>
       <Provider store={store}>
         <MainHeader routes={store.router.routes} />
-        <RouterProvider router={store.router.routerInstance}>
+        {<RouterComponent store={store.router.currentRoute!.store} />}
+        {/* <RouterProvider router={store.router.routerInstance}>
           <Route>
-            {({ route }) => <MainPage store={store.news} />
-            // route &&
-            // match(route.name)(
-            //   value('view_news', () => <ViewNewsPage store={store.news.news[0]} />),
-            //   any(() => <MainPage store={store.news} />)
-            // )
+            {({ route  }) =>
+              route &&
+              match(route.name)(
+                value('view_news', () => <ViewNewsPage store={store.news.news[0]} />),
+                any(() => <MainPage store={store.news} />)
+              )
             }
           </Route>
-        </RouterProvider>
+        </RouterProvider> */}
       </Provider>
     </AppStyled>
   </React.Fragment>
