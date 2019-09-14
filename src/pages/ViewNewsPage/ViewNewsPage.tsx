@@ -10,8 +10,7 @@ export type ViewNewsPageProps = {
 
 export const ViewNewsPage: React.FC<ViewNewsPageProps> = observer(({ pageStore }) => (
   <Content>
-    Title: "{pageStore.store.title}"} Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Impedit optio sapiente totam aliquam facere atque sunt, incidunt at quaerat explicabo repellat
-    nostrum. Recusandae quam atque esse accusamus reiciendis incidunt voluptas!
+    <h2>{pageStore.store.title}</h2>
+    <div>{pageStore.store.description}</div>
   </Content>
 ));

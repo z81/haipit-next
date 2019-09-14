@@ -1,55 +1,36 @@
-import styled from 'styled-components';
 import { Card, CardHeader, CardSubHeader } from 'components/Card/Card';
 import React from 'react';
 import { observer } from 'mobx-react';
 import { NewsStore } from 'stores/NewsStore';
 import { FaEye } from 'react-icons/fa';
-import { Link } from 'react-router5';
 import { PageType } from 'routes';
-
-export const NewsPath = styled.nav`
-  font-weight: bold;
-`;
-
-export const NewsDate = styled.nav`
-  color: #818181;
-`;
-export const NewsViews = styled.div`
-  display: flex;
-  color: #b3b3b3;
-  svg {
-    margin-right: 5px;
-  }
-`;
-
-export const SourceIcon = styled.img`
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-`;
-
-export const Source = styled.div`
-  display: flex;
-`;
+import { NewsPath } from './components/NewsPath';
+import { NewsDate } from './components/NewsDate';
+import { NewsViews } from './components/NewsViews';
+import { SourceIcon } from './components/SourceIcon';
+import { Source } from './components/Source';
+import { Link } from 'components/Link/Link';
 
 type NewsCardProps = { store: typeof NewsStore['Type'] };
 
 export const NewsCard: React.FC<NewsCardProps> = observer(({ store }) => (
   <Card>
     <CardHeader>
-      <Link routeName={PageType.view_news} routeParams={{ id: store.id }}>
-        <NewsPath>{store.path}</NewsPath>
-        <Source>
-          {store.source.imageUrl && <SourceIcon src={store.source.imageUrl} />}
-          {` ${store.source.title}`}
-        </Source>
-        <NewsDate>{store.date}</NewsDate>
-        <NewsViews>
-          <FaEye size={16} /> {store.views}
-        </NewsViews>
-      </Link>
+      <NewsPath>{store.path}</NewsPath>
+      <Source>
+        {store.source.imageUrl && <SourceIcon src={store.source.imageUrl} />}
+        {` ${store.source.title}`}
+      </Source>
+      <NewsDate>{store.date}</NewsDate>
+      <NewsViews>
+        <FaEye size={16} /> {store.views}
+      </NewsViews>
     </CardHeader>
-    <CardSubHeader>{store.title}</CardSubHeader>
+    <CardSubHeader>
+      <Link routeName={PageType.view_news} routeParams={{ id: `${store.id}` }}>
+        {store.title}
+      </Link>
+    </CardSubHeader>
     <div>{store.description}</div>
     {/* <CardFooter>
       <NewsViews>

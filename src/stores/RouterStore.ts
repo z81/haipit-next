@@ -30,7 +30,6 @@ export const RouterStore = types
   .views(self => ({
     get currentRoute() {
       const route = self.currentRouteParams;
-      console.log((route && self.routes.find(r => r.name === route.name)) || self.notFoundPage);
       return (route && self.routes.find(r => r.name === route.name)) || self.notFoundPage;
     },
   }))

@@ -5,4 +5,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+  }
 `;
