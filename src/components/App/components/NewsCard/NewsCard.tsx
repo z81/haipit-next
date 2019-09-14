@@ -4,6 +4,8 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { NewsStore } from 'stores/NewsStore';
 import { FaEye } from 'react-icons/fa';
+import { Link } from 'react-router5';
+import { PageType } from 'routes';
 
 export const NewsPath = styled.nav`
   font-weight: bold;
@@ -35,15 +37,17 @@ type NewsCardProps = { store: typeof NewsStore['Type'] };
 export const NewsCard: React.FC<NewsCardProps> = observer(({ store }) => (
   <Card>
     <CardHeader>
-      <NewsPath>{store.path}</NewsPath>
-      <Source>
-        {store.source.imageUrl && <SourceIcon src={store.source.imageUrl} />}
-        {` ${store.source.title}`}
-      </Source>
-      <NewsDate>{store.date}</NewsDate>
-      <NewsViews>
-        <FaEye size={16} /> {store.views}
-      </NewsViews>
+      <Link routeName={PageType.view_news} routeParams={{ id: store.id }}>
+        <NewsPath>{store.path}</NewsPath>
+        <Source>
+          {store.source.imageUrl && <SourceIcon src={store.source.imageUrl} />}
+          {` ${store.source.title}`}
+        </Source>
+        <NewsDate>{store.date}</NewsDate>
+        <NewsViews>
+          <FaEye size={16} /> {store.views}
+        </NewsViews>
+      </Link>
     </CardHeader>
     <CardSubHeader>{store.title}</CardSubHeader>
     <div>{store.description}</div>

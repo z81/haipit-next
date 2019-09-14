@@ -1,4 +1,6 @@
+import { NewsListStore } from 'stores/NewsListStore';
 import { types, getRoot } from 'mobx-state-tree';
+import { RootStore } from 'stores/RootStore';
 
 export const NewsPageStore = types
   .model('NewsPageStore', {
@@ -6,6 +8,6 @@ export const NewsPageStore = types
   })
   .views(self => ({
     get store() {
-      return getRoot(self).news;
+      return getRoot<typeof RootStore>(self).news;
     },
   }));

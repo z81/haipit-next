@@ -16,7 +16,6 @@ export const NewsListStore = WithDataLoaderStore.named('NewsListStore')
       }
 
       self.currentPage = page;
-
       self.load();
     },
     setTotalPages(page: number) {

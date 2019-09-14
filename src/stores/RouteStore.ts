@@ -1,9 +1,9 @@
 import { types } from 'mobx-state-tree';
-import { NewsListStore } from 'stores/NewsListStore';
+import { NewsPageStore } from 'stores/pageStores/NewsPageStore';
 
 export const RouteStore = types.model('RouteStore', {
   path: '',
   name: '',
   url: '',
-  store: types.union(NewsListStore),
+  pageStore: types.union(NewsPageStore),
 });

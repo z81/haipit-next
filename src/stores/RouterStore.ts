@@ -40,13 +40,18 @@ export const RouterStore = types
     },
   }))
   .actions(self => ({
+    setCurrentRouteParams(params: typeof self.currentRouteParams) {
+      self.currentRouteParams = params;
+    },
+  }))
+  .actions(self => ({
     initRouter() {
       const routerInstance = createRouter(routes);
       routerInstances.set(self, routerInstance);
       routerInstance.usePlugin(browserPlugin());
       routerInstance.subscribe(({ route }) => {
         const { meta, ...r } = route;
-        self.currentRouteParams = cast(r);
+        self.setCurrentRouteParams(cast(r));
       });
       routerInstance.start();
     },
@@ -56,7 +61,7 @@ export const RouterStore = types
         self.routes.push(
           cast({
             ...route,
-            store: getSnapshot(store.create()),
+            pageStore: getSnapshot(store.create()),
           })
         );
       });
