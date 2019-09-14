@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Header } from '../Header/Header';
 import { RouteStore } from 'stores/RouteStore';
 import { MainHeaderStore } from 'stores/headerStores/MainHeaderStore';
+import { observer } from 'mobx-react';
+import { getSnapshot } from 'mobx-state-tree';
 
 const Logo = styled.div`
   font-size: 36px;
@@ -33,13 +35,13 @@ type MainHeaderProps = {
   store: typeof MainHeaderStore['Type'];
 };
 
-export const MainHeader: React.FC<MainHeaderProps> = ({ store }) => (
+export const MainHeader: React.FC<MainHeaderProps> = observer(({ store }) => (
   <Header>
     <Logo>//HaipIT</Logo>
     <HeaderMenu>
       {store.mainMenu!.map(menu => (
-        <HeaderMenuItem key={menu.name}>{menu.route.pageStore.title}</HeaderMenuItem>
+        <HeaderMenuItem key={menu.name}>{menu.title}</HeaderMenuItem>
       ))}
     </HeaderMenu>
   </Header>
-);
+));

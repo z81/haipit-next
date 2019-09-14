@@ -1,6 +1,6 @@
+import { cast, types } from 'mobx-state-tree';
+import { PageType, routes } from 'routes';
 import { MenuItemStore } from './MenuItemStore';
-import { types, cast } from 'mobx-state-tree';
-import { routes, PageType } from 'routes';
 
 const MAIN_MENU_PAGES = [PageType.news];
 

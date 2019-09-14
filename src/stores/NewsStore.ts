@@ -1,7 +1,8 @@
-import { types } from 'mobx-state-tree';
-import { SourceStore } from './SourceStore';
 import { formatRelative } from 'date-fns';
 import ru from 'date-fns/locale/ru';
+import { kebabCase, mapKeys } from 'lodash';
+import { types } from 'mobx-state-tree';
+import { SourceStore } from './SourceStore';
 
 export const NewsStore = types
   .model('NewsStore', {
@@ -21,4 +22,8 @@ export const NewsStore = types
     get path() {
       return `Новость / ${self.description ? 'Статья' : 'Ссылка'}`;
     },
+  }))
+  .preProcessSnapshot((snapshot: {}) => ({
+    ...mapKeys(snapshot, (_, key: string) => kebabCase(key)),
+    createdAt: new Date((snapshot as any).created_at || 0),
   }));

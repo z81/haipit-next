@@ -1,8 +1,8 @@
-import { types, getSnapshot, cast } from 'mobx-state-tree';
+import { cast, getSnapshot, types } from 'mobx-state-tree';
+import { RouteContext } from 'react-router5/types/types';
 import createRouter from 'router5';
 import browserPlugin from 'router5-plugin-browser';
 import { RouteStore } from 'stores/RouteStore';
-import { RouteContext } from 'react-router5/types/types';
 import { routes } from '../routes';
 
 const routerInstances = new Map();
@@ -30,6 +30,7 @@ export const RouterStore = types
   .views(self => ({
     get currentRoute() {
       const route = self.currentRouteParams;
+      console.log((route && self.routes.find(r => r.name === route.name)) || self.notFoundPage);
       return (route && self.routes.find(r => r.name === route.name)) || self.notFoundPage;
     },
   }))
@@ -43,6 +44,11 @@ export const RouterStore = types
     setCurrentRouteParams(params: typeof self.currentRouteParams) {
       self.currentRouteParams = params;
     },
+    createPageStore(routeName: string) {
+      const { store } = routes.find(r => r.name === routeName)!;
+      const route = self.routes.find(r => r.name === routeName)!;
+      route.pageStore = store.create();
+    },
   }))
   .actions(self => ({
     initRouter() {
@@ -52,25 +58,21 @@ export const RouterStore = types
       routerInstance.subscribe(({ route }) => {
         const { meta, ...r } = route;
         self.setCurrentRouteParams(cast(r));
+        self.createPageStore(route.name);
       });
       routerInstance.start();
     },
     loadRoutes() {
       routes.forEach(({ component, store, ...route }) => {
         routesComponents.set(route.name, component);
-        self.routes.push(
-          cast({
-            ...route,
-            pageStore: getSnapshot(store.create()),
-          })
-        );
+        self.routes.push(route);
       });
     },
   }))
   .actions(self => ({
     afterCreate() {
-      self.initRouter();
       self.loadRoutes();
+      self.initRouter();
     },
     getRoute({ route }: RouteContext) {
       return self.routes.find(r => r.name === route.name) || self.notFoundPage;

@@ -1,7 +1,7 @@
-import { types, cast } from 'mobx-state-tree';
+import { cast, types } from 'mobx-state-tree';
+import { newsService } from 'services';
 import { NewsStore } from './NewsStore';
 import { WithDataLoaderStore } from './WithDataLoaderStore';
-import { newsService } from 'services';
 
 export const NewsListStore = WithDataLoaderStore.named('NewsListStore')
   .props({
@@ -46,23 +46,7 @@ export const NewsListStore = WithDataLoaderStore.named('NewsListStore')
 
       self.setTotalPages(news.total);
       self.setCurrentPage(news.current_page);
-      self.setNews(
-        news.data.map(({ source, ...item }) =>
-          cast({
-            id: item.id,
-            title: item.title,
-            description: item.description,
-            createdAt: new Date(item.created_at),
-            views: item.views_count,
-            source: {
-              title: source.title,
-              shortName: source.short_name,
-              imageUrl: source.image_url,
-              imageTitle: source.title,
-            },
-          })
-        )
-      );
+      self.setNews(news.data.map(item => cast(item)));
 
       self.setLoadingState(false);
     },

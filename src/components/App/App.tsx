@@ -7,18 +7,19 @@ import { MainHeader } from './components/MainHeader/MainHeader';
 import { RouterProvider } from 'react-router5';
 
 export const rootStore = RootStore.create({});
+
 const RouterComponent = rootStore.router.routerComponent;
 
 export const App: React.FC = () => (
-  <React.Fragment>
+  <>
     <GlobalStyle />
     <AppStyled>
       <RouterProvider router={rootStore.router.routerInstance}>
         <Provider store={rootStore}>
           <MainHeader store={rootStore.mainMenu} />
-          <RouterComponent store={rootStore.router.currentRoute!.pageStore} />
+          <RouterComponent pageStore={rootStore.router.currentRoute!.pageStore} />
         </Provider>
       </RouterProvider>
     </AppStyled>
-  </React.Fragment>
+  </>
 );
