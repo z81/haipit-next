@@ -1,13 +1,13 @@
-import { NewsCard } from 'components/App/components/NewsCard/NewsCard';
-import { NewsLoaderPlaceholder } from 'components/App/components/NewsCard/NewsLoaderPlaceholder';
-import { Button } from 'components/Button/Button';
-import { Content } from 'components/Content/Content';
+import { NewsCard } from 'components/app/components/news-card/news-card';
+import { NewsLoaderPlaceholder } from 'components/app/components/news-card/news-loader-placeholder';
+import { Button } from 'components/button/button';
+import { Content } from 'components/content/content';
 import { observer } from 'mobx-react';
 import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { NewsPageStore } from 'stores/pageStores/NewsPageStore';
-import { HeaderPages } from './components/HeaderPages';
-import { PaginationPagesCount } from './components/PaginationPagesCount';
+import { NewsPageStore } from 'stores/page-stores/news-page-store';
+import { HeaderPages } from './components/header-pages';
+import { PaginationPagesCount } from './components/pagination-pages-count';
 
 type MainAppProps = { pageStore: typeof NewsPageStore['Type'] };
 

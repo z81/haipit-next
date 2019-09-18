@@ -1,11 +1,11 @@
 import React from 'react';
-import { Header } from '../Header/Header';
-import { MainHeaderStore } from 'stores/headerStores/MainHeaderStore';
+import { Header } from '../header/header';
+import { MainHeaderStore } from 'stores/header-stores/main-header-store';
 import { observer } from 'mobx-react';
-import { Logo } from './components/Logo';
-import { HeaderMenu } from './components/HeaderMenu';
-import { HeaderMenuItem } from './components/HeaderMenuItem';
-import { Link } from 'components/Link/Link';
+import { Logo } from './components/logo';
+import { HeaderMenu } from './components/header-menu';
+import { HeaderMenuItem } from './components/header-menu-item';
+import { Link } from 'components/link/link';
 import { PageType } from 'routes';
 
 type MainHeaderProps = {

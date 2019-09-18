@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
 import { observer } from 'mobx-react';
-import { RootStore } from 'stores/RootStore';
-import { RouterStore } from 'stores/RouterStore';
+import { RouterStore } from 'stores/router-store';
 
 const titleNode = document.querySelector('title');
 

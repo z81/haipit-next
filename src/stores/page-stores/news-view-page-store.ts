@@ -1,7 +1,7 @@
-import { rootStore } from 'components/App/App';
+import { rootStore } from 'components/app/app';
 import { flow, types } from 'mobx-state-tree';
 import { newsService } from 'services';
-import { NewsStore } from './../NewsStore';
+import { NewsStore } from '../news-store';
 
 export const NewsViewPageStore = types
   .model('NewsViewPageStore', {

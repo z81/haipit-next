@@ -1,7 +1,7 @@
-import { MainPage } from 'pages/MainPage/MainPage';
-import { NewsPageStore } from 'stores/pageStores/NewsPageStore';
-import { ViewNewsPage } from 'pages/ViewNewsPage/ViewNewsPage';
-import { NewsViewPageStore } from 'stores/pageStores/NewsViewPageStore';
+import { MainPage } from 'pages/main-page/main-page';
+import { NewsPageStore } from 'stores/page-stores/news-page-store';
+import { ViewNewsPage } from 'pages/view-news-page/viewnews-page';
+import { NewsViewPageStore } from 'stores/page-stores/news-view-page-store';
 
 export enum PageType {
   news = 'news',

@@ -1,10 +1,10 @@
-import { Card, CardSubHeader } from 'components/Card/Card';
+import { Card, CardSubHeader } from 'components/card/card';
 import React from 'react';
 import { observer } from 'mobx-react';
-import { NewsStore } from 'stores/NewsStore';
+import { NewsStore } from 'stores/news-store';
 import { PageType } from 'routes';
-import { Link } from 'components/Link/Link';
-import { NewsCardHeader } from 'components/App/components/NewsCard/components/NewsCardHeader';
+import { Link } from 'components/link/link';
+import { NewsCardHeader } from 'components/app/components/news-card/components/news-card-header';
 
 type NewsCardProps = { store: typeof NewsStore['Type'] };
 

@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import { rootStore } from 'components/App/App';
+import { rootStore } from 'components/app/app';
 import React from 'react';
 
 export const RouterComponent = observer(() => {

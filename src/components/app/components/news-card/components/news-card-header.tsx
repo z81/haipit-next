@@ -1,13 +1,13 @@
 import React from 'react';
-import { NewsPath } from 'components/App/components/NewsCard/components/NewsPath';
-import { Source } from 'components/App/components/NewsCard/components/Source';
-import { NewsDate } from 'components/App/components/NewsCard/components/NewsDate';
-import { NewsViews } from 'components/App/components/NewsCard/components/NewsViews';
+import { NewsPath } from 'components/app/components/news-card/components/news-path';
+import { Source } from 'components/app/components/news-card/components/source';
+import { NewsDate } from 'components/app/components/news-card/components/news-date';
+import { NewsViews } from 'components/app/components/news-card/components/news-views';
 import { FaEye } from 'react-icons/fa';
 import { observer } from 'mobx-react';
-import { SourceIcon } from 'components/App/components/NewsCard/components/SourceIcon';
-import { NewsStore } from 'stores/NewsStore';
-import { CardHeader } from 'components/Card/Card';
+import { SourceIcon } from 'components/app/components/news-card/components/source-icon';
+import { NewsStore } from 'stores/news-store';
+import { CardHeader } from 'components/card/card';
 
 type NewsCardHeaderProps = { store: typeof NewsStore['Type'] };
 

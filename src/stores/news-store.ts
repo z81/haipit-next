@@ -2,7 +2,7 @@ import { formatRelative } from 'date-fns';
 import ru from 'date-fns/locale/ru';
 import { kebabCase, mapKeys } from 'lodash';
 import { types } from 'mobx-state-tree';
-import { SourceStore } from './SourceStore';
+import { SourceStore } from './source-store';
 
 export const NewsStore = types
   .model('NewsStore', {

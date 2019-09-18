@@ -1,7 +1,7 @@
 import ContentLoader from 'react-content-loader';
 import React from 'react';
 import styled from 'styled-components';
-import { Card } from 'components/Card/Card';
+import { Card } from 'components/card/card';
 
 export const NewsLoaderPlaceholderStyled = styled.div`
   width: 640px;

@@ -1,6 +1,6 @@
 import { getRoot, types } from 'mobx-state-tree';
 import { PageType } from 'routes';
-import { RouteStore } from './../RouteStore';
+import { RouteStore } from '../route-store';
 
 export const MenuItemStore = types
   .model('MenuItemStore', {

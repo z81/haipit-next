@@ -1,9 +1,9 @@
-import { Content } from 'components/Content/Content';
+import { Content } from 'components/content/content';
 import { observer } from 'mobx-react';
 import React from 'react';
-import { NewsViewPageStore } from 'stores/pageStores/NewsViewPageStore';
+import { NewsViewPageStore } from 'stores/page-stores/news-view-page-store';
 import styled from 'styled-components';
-import { NewsCardHeader } from 'components/App/components/NewsCard/components/NewsCardHeader';
+import { NewsCardHeader } from 'components/app/components/news-card/components/news-card-header';
 
 export type ViewNewsPageProps = {
   pageStore: typeof NewsViewPageStore['Type'];

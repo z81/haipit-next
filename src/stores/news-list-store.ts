@@ -1,7 +1,7 @@
 import { cast, types } from 'mobx-state-tree';
 import { newsService } from 'services';
-import { NewsStore } from './NewsStore';
-import { WithDataLoaderStore } from './WithDataLoaderStore';
+import { NewsStore } from './news-store';
+import { WithDataLoaderStore } from './with-data-loader-store';
 
 export const NewsListStore = WithDataLoaderStore.named('NewsListStore')
   .props({
