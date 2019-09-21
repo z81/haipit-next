@@ -1,6 +1,6 @@
-import { getApiClient } from './getApiClient';
-import { NewsListResponseType } from './responseTypes/NewsListResponseType';
-import { NewsResponseType } from 'Api/responseTypes/NewsResponseType';
+import { getApiClient } from './get-api-client';
+import { NewsListResponseType } from './response-types/NewsListResponseType';
+import { NewsResponseType } from 'Api/response-types/NewsResponseType';
 
 export class NewsApi {
   static getNews(page: number) {

@@ -1,4 +1,4 @@
-import { SourceResponseType } from './SourceResponseType';
+import { SourceResponseType } from './source-response-type';
 
 export type NewsResponseType = {
   id: number;
