@@ -17,7 +17,7 @@ export const MainPage: React.FC<MainAppProps> = observer(({ pageStore }) => {
   return (
     <Content>
       <HeaderPages>
-        <Button onClick={store.loadNext}>
+        <Button onClick={store.loadPrev}>
           <FaArrowLeft />
         </Button>
         <Button onClick={store.loadNext}>
