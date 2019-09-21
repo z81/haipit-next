@@ -6,7 +6,7 @@ import { NewsStore } from '../news-store';
 export const NewsViewPageStore = types
   .model('NewsViewPageStore', {
     title: 'Просмотр новости',
-    store: types.optional(NewsStore, {}),
+    store: types.optional(NewsStore, {} as any),
     isLoading: true,
   })
   .views(() => ({

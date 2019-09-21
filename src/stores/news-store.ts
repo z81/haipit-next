@@ -1,6 +1,6 @@
 import { formatRelative } from 'date-fns';
 import ru from 'date-fns/locale/ru';
-import { kebabCase, mapKeys } from 'lodash';
+import { mapKeys, camelCase } from 'lodash';
 import { types } from 'mobx-state-tree';
 import { SourceStore } from './source-store';
 
@@ -23,7 +23,8 @@ export const NewsStore = types
       return `Новость / ${self.description ? 'Статья' : 'Ссылка'}`;
     },
   }))
-  .preProcessSnapshot((snapshot: {}) => ({
-    ...mapKeys(snapshot, (_, key: string) => kebabCase(key)),
+  .preProcessSnapshot((snapshot: { source: {} }) => ({
+    ...mapKeys(snapshot, (_, key: string) => camelCase(key)),
     createdAt: new Date((snapshot as any).created_at || 0),
+    source: mapKeys(snapshot.source, (_, key: string) => camelCase(key)),
   }));
