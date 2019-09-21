@@ -3,7 +3,7 @@ import { RouteContext } from 'react-router5/types/types';
 import createRouter from 'router5';
 import browserPlugin from 'router5-plugin-browser';
 import { RouteStore } from 'stores/route-store';
-import { routes } from '../routes';
+import { routes, PageType } from '../routes';
 
 const routerInstances = new Map();
 const routesComponents = new Map();
@@ -24,7 +24,7 @@ export const RouterStore = types
       return routerInstances.get(self);
     },
     get notFoundPage() {
-      return self.routes.find(r => r.name === 'news');
+      return self.routes.find(r => r.name === PageType.news);
     },
   }))
   .views(self => ({
