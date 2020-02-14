@@ -1,12 +1,11 @@
 import React from 'react';
-import { PageTitle } from 'components/app/page-title/page-title';
-import { RouterComponent } from 'components/router-component/router-component';
 import { Provider } from 'mobx-react';
-import { RouterProvider } from 'react-router5';
+import { Router, View } from 'react-navi';
 import { RootStore } from 'stores/root-store';
 import { AppStyled } from './app.styled';
 import { MainHeader } from './components/main-header/main-header';
 import { GlobalStyle } from './global-style';
+import { routes } from 'routes';
 
 export const rootStore = RootStore.create({});
 
@@ -14,13 +13,12 @@ export const App: React.FC = () => (
   <>
     <GlobalStyle />
     <AppStyled>
-      <RouterProvider router={rootStore.router.routerInstance}>
+      <Router routes={routes}>
         <Provider store={rootStore}>
-          <PageTitle store={rootStore.router.currentRoute} />
           <MainHeader store={rootStore.mainMenu} />
-          <RouterComponent />
+          <View />
         </Provider>
-      </RouterProvider>
+      </Router>
     </AppStyled>
   </>
 );

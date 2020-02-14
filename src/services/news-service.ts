@@ -1,4 +1,4 @@
-import { NewsApi } from 'api/news-api';
+gimport { NewsApi } from 'api/news-api';
 
 export class NewsService {
   getNews(page: number = 1) {
